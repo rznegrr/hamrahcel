@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+@font-face {
+  font-family: "kalameh";
+  src: url("/fonts/KalamehWeb_Regular.ttf") format("ttf");
+  src: url("/fonts/KalamehWeb_Regular.woff2") format("woff2");
+}
+
+body {
+  font-family: "kalameh";
+  direction: rtl;
+  background-color: #fafafb;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.swiper .swiper-pagination-bullet-active {
+  background-color: #cd1613;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  position: absolute;
+  top: 0;
+  color: #cd1613;
+  font-size: 18px !important;
+  background-color: #e7e7e7d3;
+  padding: 8px 12px;
+  border-radius: 100%;
+}
+
+.scrollTopBtn {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  width: 80px;
+  height: 55px;
+  background-color: #cd1613;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: path("M5 60 Q35 10 65 60 L70 60 L0 60 Z");
+  overflow: hidden;
+}
+
+.scrollTopBtn i {
+  position: absolute;
+  top: 40px;
+  left: 26px;
+  z-index: 100;
+  color: white;
+}
+
+.shadow {
+  box-shadow: -11px -26px 43px -18px rgba(36, 36, 36, 0.36);
+}
+
+.color {
+  color: #397dd5;
+}
+
+.article-elements img{
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.article-elements h3 {
+  color: #141414;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 10px 5px;
+}
+
+.article-elements p {
+  color: #222222d2;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 10px 5px;
+  line-height: 1.7;
+}
