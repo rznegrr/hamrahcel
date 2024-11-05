@@ -1,13 +1,15 @@
 import SuggestedBlogItem from "@/features/blogs/SuggestedBlogItem";
 import SuggestedProductsSlider from "@/features/products/suggestedProudcts/SuggestedProductsSlider";
 import Applayout from "@/layouts/Applayout";
+import Breadcrumb from "@/ui/BreadCrumb";
 import HeadTitle from "@/ui/HeadTitle";
 
 function ArticleDetail() {
   return (
     <Applayout>
       <HeadTitle title={` همراه سل | مقالات`} meta="مقالات همراه سل" />
-      <div className="grid grid-cols-12 p-2 lg:p-6 gap-5">
+      <Breadcrumb/>
+      <div className="grid grid-cols-12 p-2 gap-5">
         <div className="col-span-12 xl:col-span-9 border border-border-color p-5 lg:p-10 rounded-sm bg-white">
           <div>
             <h3 className="text-xl font-black">

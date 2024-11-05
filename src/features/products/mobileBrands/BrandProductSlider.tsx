@@ -11,6 +11,7 @@ export default function BrandProductSlider() {
     <>
       <Swiper
         spaceBetween={10}
+        navigation
         loop={true}
         effect={"fade"}
         className="w-100"
@@ -54,6 +55,7 @@ export default function BrandProductSlider() {
         <SwiperSlide>
           <ProductCard className="mx-auto" />
         </SwiperSlide>
+        <></>
       </Swiper>
     </>
   );

@@ -11,7 +11,6 @@ function DesktopMenu() {
       <button
         onClick={toggleMenu}
         onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
         className="px-4 py-2 text-black flex text-md"
       >
         <i className="bi bi-list text-lg ml-1 text-gray"></i>
@@ -33,13 +32,16 @@ function DesktopMenu() {
         درباره ما
       </button>
 
-      <button className="px-4 py-2 text-black flex text-md">
-        <i className="bi bi-tablet text-lg ml-1 text-gray"></i>
-        مگا منو
+      <Link href={"/articles"}>
+        <button className="px-4 py-2 text-black flex text-md">
+          <i className="bi bi-tablet text-lg ml-1 text-gray"></i>
+          همراه مگ
+        </button>
+      </Link>
+
+      <button className=" text-black flex items-center text-md border-r h-5 my-auto px-4 py-2 mr-2">
+        سوالی دارید؟
       </button>
-
-      <button className=" text-black flex items-center text-md border-r h-5 my-auto px-4 py-2 mr-2">سوالی دارید؟</button>
-
 
       {isOpen && (
         <div

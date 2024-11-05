@@ -17,12 +17,12 @@ body {
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .swiper .swiper-pagination-bullet-active {
@@ -70,10 +70,10 @@ body {
 }
 
 .color {
-  color: #397dd5;
+  color: #f7f7f7;
 }
 
-.article-elements img{
+.article-elements img {
   width: 100%;
   height: auto;
   margin: 20px 0;
@@ -98,4 +98,47 @@ body {
   text-justify: inter-word;
   padding: 10px 5px;
   line-height: 1.7;
+}
+
+.custom-step .ant-steps-item-title {
+  font-family: "kalameh";
+  color: #757575 !important;
+}
+
+.custom-step .ant-steps-item-icon {
+  font-size: 18px !important;
+  width: 35px !important;
+  height: 35px !important;
+  color: #ffffff !important;
+  border: 2px solid #cd1613 !important;
+  background-color: #ffffff !important;
+}
+
+.custom-step .ant-steps-item-process .ant-steps-item-icon {
+  color: #f56a00 !important; /* رنگ دایره مرحله جاری */
+}
+
+.custom-step .ant-steps-item-finish .ant-steps-item-icon {
+  width: 35px !important;
+  height: 35px !important;
+  color: #ffffff !important;
+  border: 2px solid #cd1613 !important;
+  background-color: #ffffff !important;
+}
+
+.custom-step .ant-steps-item-finish .ant-steps-item-icon {
+  color: #cd1613 !important;
+  border-color: #cd1613 !important; /* رنگ دایره در مراحل تکمیل‌شده */
+}
+
+.custom-step .ant-steps-item-finish .ant-steps-item-title {
+  color: #cd1613 !important; /* رنگ عنوان در مراحل تکمیل‌شده */
+}
+
+.custom-step .ant-steps-item-process .ant-steps-item-tail::after {
+  background-color: #464646 !important; /* رنگ خط متصل‌کننده در مراحل تکمیل‌شده */
+}
+
+.custom-step .ant-steps-item-finish .ant-steps-item-tail::after {
+  background-color: #cd1613 !important; /* رنگ خط متصل‌کننده در مراحل تکمیل‌شده */
 }

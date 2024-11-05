@@ -7,10 +7,10 @@ import CategorySlider from "@/features/category/CategorySlider";
 import NewProductsSlider from "@/features/products/newProducts/NewProductsSlider";
 import OfferProducts from "@/features/products/offerProducts/OfferProducts";
 import BrandingProductItems from "@/features/products/mobileBrands/BrandProductItems";
-import AdvertBanner from "@/features/advertBanner/AdvertBanner";
+import AdvertBanner from "@/ui/AdvertBanner";
 import Blogs from "@/features/blogs/Blogs";
-import AboutUs from "@/features/aboutUs/AboutUs";
-import Brands from "@/features/brands/Brands";
+import AboutUs from "@/ui/AboutUs";
+import Brands from "@/ui/Brands";
 
 function HomePage() {
   return (

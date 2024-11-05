@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "@/ui/Button";
 import InputSearch from "@/ui/InputSearch";
-import DesktopMenu from "./DesktopMenu";
-import { useAuth } from "@/context/authContext";
 import LoginForm from "@/features/authentication/LoginForm";
+
+import { useAuth } from "@/context/authContext";
+import ShopCartPopUpItem from "@/features/shopCart/ShopCartPopUpItem";
 function HeaderDesktop() {
-  const { setFormIsOpen } = useAuth()
+  const [isOpen, setIsOpen] = useState(false);
+  const { setFormIsOpen } = useAuth();
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <>
-      <div className="h-20 lg:h-28 xl:shadow-none">
+      <div className="h-20 lg:h-28 xl:shadow-none relative">
         <div className="flex justify-between items-center w-[94%] m-auto">
           <img src="/hamrahcel.svg" className="h-28 w-36" alt="لوگو همراه سل" />
           <div className="w-[50%] xl:w-[60%]">
             <InputSearch />
           </div>
           <div className="flex gap-5">
-            <button className="border text-sm rounded-md rounded-tr-xl border-border-color bg-main-color text-white flex justify-between px-6 py-1 shadow-md items-center">
+            <button
+              className="border text-sm rounded-md rounded-tr-xl border-border-color bg-main-color text-white flex justify-between px-6 py-1 shadow-md items-center"
+              onClick={toggleMenu}
+              onMouseEnter={() => setIsOpen(true)}
+            >
               <i className="bi bi-basket-fill text-white text-md pl-2"></i>سبد
               خرید
               <span className="bg-white text-sm text-main-color mr-2 px-[5px] rounded-full">
@@ -28,12 +36,40 @@ function HeaderDesktop() {
               buttonName="ورود / ثبتنام"
               buttonIcon={"bi bi-person-fill text-main-color pl-2"}
               className="border border-border-color"
-              onClick={()=>setFormIsOpen(true)}
+              onClick={() => setFormIsOpen(true)}
             />
           </div>
         </div>
       </div>
-      <LoginForm/>
+      <LoginForm />
+      {isOpen && (
+        <div
+          className="absolute left-10 top-28 z-50 mt-2 w-96 bg-white shadow-lg rounded-md rounded-tr-2xl"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <div className="overflow-y-auto h-72">
+            <ShopCartPopUpItem />
+            <ShopCartPopUpItem />
+            <ShopCartPopUpItem />
+            <ShopCartPopUpItem />
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <div className="flex justify-between p-5 border-t border-border-color">
+              <p>جمع کل سفارش :</p>
+              <p>
+                48,095,738 <span className="text-sm mr-1">تومان</span>
+              </p>
+            </div>
+            <Button
+              buttonName="ادامه فرایند خرید"
+              className="flex-row-reverse w-72 border border-main-color text-main-color m-auto mb-10"
+              buttonIcon="bi bi-arrow-left"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

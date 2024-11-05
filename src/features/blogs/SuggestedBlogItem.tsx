@@ -2,7 +2,7 @@ import React from "react";
 
 function SuggestedBlogItem() {
   return (
-    <div className="col-span-12 md:col-span-6 xl:col-span-12 md:mx-5">
+    <div className="col-span-12 md:col-span-6 xl:col-span-12 mx-5">
       <div className="flex justify-between items-center h-24 my-4">
         <img
           src="/images/blogs/blog-1.jpg"

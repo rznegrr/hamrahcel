@@ -34,7 +34,7 @@ export default function NewProductsSlider() {
             slidesPerView: 4,
           },
           2560: {
-            slidesPerView: 5, // desktop
+            slidesPerView: 6, // desktop
           },
         }}
         modules={[Autoplay, Pagination]}
