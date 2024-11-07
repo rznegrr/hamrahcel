@@ -1,3 +1,4 @@
+import ShipmentInfo from "@/ui/ShipmentInfo";
 import React from "react";
 
 function ShopCartItem() {
@@ -19,27 +20,14 @@ function ShopCartItem() {
               <p className="text-xs md:text-sm text-black">رنگ مشکی</p>
             </div>
 
-            <div className="flex flex-col gap-2 pt-2">
-              <button className="flex gap-2 text-sm text-gray">
-                <i className="bi bi-shield-check"></i>
-                گارانتی سلامت فیزیکی کالا
-              </button>
-              <button className="flex gap-2 text-sm text-gray">
-                <i className="bi bi-shop-window"></i>
-                فروشگاه همراه سل
-              </button>
-              <button className="flex gap-2 text-sm text-gray">
-                <i className="bi bi-truck"></i>
-                ارسال کالا ۵ روز کاری
-              </button>
-            </div>
+            <ShipmentInfo className="gap-1"/>
           </div>
         </div>
 
         <div className="flex justify-between items-center md:justify-start w-full gap-x-8 pt-5 px-5">
           {/* count and price */}
           <div className="flex items-center gap-x-4 border border-border-color px-2 py-1 rounded-md">
-            <button className="text-base text-gray cursor-pointer font-black">
+            <button className="text-base text-gray cursor-not-allowed font-black">
               <i className="bi bi-plus text-main-color"></i>
             </button>
             <p className="text-main-color">0</p>

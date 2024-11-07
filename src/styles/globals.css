@@ -70,7 +70,7 @@ body {
 }
 
 .color {
-  color: #f7f7f7;
+  color: #2e2e2e;
 }
 
 .article-elements img {
@@ -100,6 +100,83 @@ body {
   line-height: 1.7;
 }
 
+.form {
+  height: 400px;
+  width: 700px;
+  padding: 1rem;
+  margin-right: 40px;
+}
+
+.form .mainDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  width: 150px;
+  text-align: right;
+  margin: 10px 0;
+  color: #141414;
+}
+
+.form input,
+textarea {
+  width: 350px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #cececeec;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.form input:focus,
+textarea:focus {
+  border-color: #b3b3b3;
+  outline: none;
+}
+
+.form textarea {
+  height: 6rem;
+  resize: none;
+}
+
+.tab-button {
+  position: relative;
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #cd1613;
+  transition: width 0.3s ease;
+}
+
+.tab-button.active::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  .form {
+    width: 500px;
+    margin-right: 10px;
+  }
+
+  .form input,
+  textarea {
+    width: 300px;
+  }
+}
+
+
+/*
 .custom-step .ant-steps-item-title {
   font-family: "kalameh";
   color: #757575 !important;
@@ -115,7 +192,7 @@ body {
 }
 
 .custom-step .ant-steps-item-process .ant-steps-item-icon {
-  color: #f56a00 !important; /* رنگ دایره مرحله جاری */
+  color: #f56a00 !important; 
 }
 
 .custom-step .ant-steps-item-finish .ant-steps-item-icon {
@@ -128,17 +205,17 @@ body {
 
 .custom-step .ant-steps-item-finish .ant-steps-item-icon {
   color: #cd1613 !important;
-  border-color: #cd1613 !important; /* رنگ دایره در مراحل تکمیل‌شده */
+  border-color: #cd1613 !important; 
 }
 
 .custom-step .ant-steps-item-finish .ant-steps-item-title {
-  color: #cd1613 !important; /* رنگ عنوان در مراحل تکمیل‌شده */
+  color: #cd1613 !important;
 }
 
 .custom-step .ant-steps-item-process .ant-steps-item-tail::after {
-  background-color: #464646 !important; /* رنگ خط متصل‌کننده در مراحل تکمیل‌شده */
+  background-color: #464646 !important; 
 }
 
 .custom-step .ant-steps-item-finish .ant-steps-item-tail::after {
-  background-color: #cd1613 !important; /* رنگ خط متصل‌کننده در مراحل تکمیل‌شده */
-}
+  background-color: #cd1613 !important; 
+} */

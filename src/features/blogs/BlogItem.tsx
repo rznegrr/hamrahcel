@@ -22,7 +22,7 @@ function BlogItem({image, date, title}: BlogItemProps) {
           <p className="text-2xs text-gray pb-2 text-xs">{date}</p>
           <p className="text-xs md:text-[13px] truncate text-main-color">{title}</p>
           <p className="text-black text-sm line-clamp-1 md:line-clamp-2 pt-4 mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore ut nisi vel ullam, molestiae animi mollitia exercitationem laboriosam nemo amet ad, magnam, ipsam doloribus quo debitis alias corporis hic. Ducimus?</p>
-          <Button buttonName="بیشتر بخوانیم" buttonIcon="bi bi-chevron-left text-sm text-main-color" className="flex-row-reverse border border-main-color w-32"/>
+          <Button buttonName="بیشتر بخوانیم" buttonIcon="bi bi-chevron-left text-sm" className="flex-row-reverse border justify-between border-main-color w-32 m-auto hover:bg-main-color hover:text-white transition-all ease-in-out duration-300"/>
         </div>
       </div>
     </>

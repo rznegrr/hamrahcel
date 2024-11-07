@@ -6,6 +6,7 @@ import LoginForm from "@/features/authentication/LoginForm";
 
 import { useAuth } from "@/context/authContext";
 import ShopCartPopUpItem from "@/features/shopCart/ShopCartPopUpItem";
+import Link from "next/link";
 function HeaderDesktop() {
   const [isOpen, setIsOpen] = useState(false);
   const { setFormIsOpen } = useAuth();
@@ -62,11 +63,13 @@ function HeaderDesktop() {
                 48,095,738 <span className="text-sm mr-1">تومان</span>
               </p>
             </div>
-            <Button
+          <Link href={'/shopcart'}>
+          <Button
               buttonName="ادامه فرایند خرید"
-              className="flex-row-reverse w-72 border border-main-color text-main-color m-auto mb-10"
+              className="flex-row-reverse justify-between hover:bg-main-color hover:text-white transition-all ease-out duration-200 w-72 border border-main-color text-main-color m-auto mb-10"
               buttonIcon="bi bi-arrow-left"
             />
+            </Link>
           </div>
         </div>
       )}

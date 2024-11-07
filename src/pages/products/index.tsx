@@ -84,7 +84,7 @@ function ProductPage() {
               onClick={() => toggleCategory("price-range-input")}
               className="w-full text-right p-3 text-sm text-black mb-2 flex justify-between border-t border-border-color"
             >
-              محدوده قیمت <i className="bi bi-chevron-left"></i>
+              محدوده قیمت <i className={`bi ${openCategories.includes("price-range-input") ? "bi-chevron-down" : "bi-chevron-left"}`}></i>
             </button>
 
             {openCategories.includes("price-range-input") && (
@@ -111,7 +111,7 @@ function ProductPage() {
               className="w-full text-right p-3 text-sm text-black mb-2 flex justify-between border-t border-border-color"
             >
               دسته بندی ها
-              <i className="bi bi-chevron-left"></i>
+              <i className={`bi ${openCategories.includes("categories") ? "bi-chevron-down" : "bi-chevron-left"}`}></i>
             </button>
             {openCategories.includes("categories") && (
               <>
@@ -140,7 +140,7 @@ function ProductPage() {
               onClick={() => toggleCategory("brands")}
               className="w-full text-right p-3 text-sm text-black mb-2 flex justify-between border-t border-border-color"
             >
-              برند ها <i className="bi bi-chevron-left"></i>
+              برند ها <i className={`bi ${openCategories.includes("brands") ? "bi-chevron-down" : "bi-chevron-left"}`}></i>
             </button>
             {openCategories.includes("brands") && (
               <>
@@ -166,7 +166,7 @@ function ProductPage() {
               onClick={() => toggleCategory("ram")}
               className="w-full text-right p-3 text-sm text-black mb-2 flex justify-between border-t border-border-color"
             >
-              رم <i className="bi bi-chevron-left"></i>
+              رم <i className={`bi ${openCategories.includes("ram") ? "bi-chevron-down" : "bi-chevron-left"}`}></i>
             </button>
             {openCategories.includes("ram") && (
               <>
