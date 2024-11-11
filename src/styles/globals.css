@@ -175,6 +175,17 @@ textarea:focus {
   }
 }
 
+.subsets li{
+  color: #777777;
+}
+
+.account-bg {
+  background-image: url("/images/bg-pattern.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 /*
 .custom-step .ant-steps-item-title {

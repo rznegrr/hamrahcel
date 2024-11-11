@@ -1,7 +1,7 @@
 import React from "react";
 
 import HeadTitle from "../ui/HeadTitle";
-import Hero from "@/features/hero/Hero";
+import Hero from "@/ui/hero/Hero";
 import Applayout from "@/layouts/Applayout";
 import CategorySlider from "@/features/category/CategorySlider";
 import NewProductsSlider from "@/features/products/newProducts/NewProductsSlider";

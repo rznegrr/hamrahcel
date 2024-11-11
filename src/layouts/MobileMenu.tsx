@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/authContext";
+import { useAuth } from "@/context/AuthContext";
 import LoginForm from "@/features/authentication/LoginForm";
 import Link from "next/link";
 

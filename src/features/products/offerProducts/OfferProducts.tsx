@@ -9,7 +9,8 @@ function OfferProducts() {
           <h1 className="text-white text-md lg:text-4xl text-center leading-normal">
             پیشنهاد های شگفت انگیز
           </h1>
-          <i className="bi bi-tags text-xl lg:text-5xl text-white"></i>
+          {/* <i className="bi bi-tags text-xl lg:text-5xl text-white"></i> */}
+          <img src="/images/sale-price.gif" className="h-28 w-28"/>
         </div>
         <Button
           className="text-main-color bg-sec-color flex-row-reverse gap-2 text-xs lg:text-base"

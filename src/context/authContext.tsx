@@ -12,9 +12,12 @@ const AuthContext = createContext<AuthContextType>({
 
 const AuthProvider = ({ children }: any) => {
   const [formIsOpen, setFormIsOpen] = useState<boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const value = {
     formIsOpen,
     setFormIsOpen,
+    isAuthenticated,
+    setIsAuthenticated
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

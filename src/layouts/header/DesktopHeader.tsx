@@ -4,10 +4,11 @@ import Button from "@/ui/Button";
 import InputSearch from "@/ui/InputSearch";
 import LoginForm from "@/features/authentication/LoginForm";
 
-import { useAuth } from "@/context/authContext";
+import { useAuth } from "@/context/AuthContext";
 import ShopCartPopUpItem from "@/features/shopCart/ShopCartPopUpItem";
 import Link from "next/link";
-function HeaderDesktop() {
+
+function DesktopHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const { setFormIsOpen } = useAuth();
 
@@ -77,4 +78,4 @@ function HeaderDesktop() {
   );
 }
 
-export default HeaderDesktop;
+export default DesktopHeader;

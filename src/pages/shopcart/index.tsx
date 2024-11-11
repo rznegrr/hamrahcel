@@ -9,11 +9,9 @@ function ShopCartPage() {
     <Applayout>
       <HeadTitle title="سبد خرید" meta="سبد خرید همراه سل" />
       <Breadcrumb/>
-      {/* <ProgressIndicator/> */}
-
       <div className="grid grid-cols-12 gap-x-5 mb-20">
 
-        {/* shop cart item */}
+        {/* shop cart items */}
         <div className="col-span-12 lg:col-span-7">
           <ShopCartItem/>          
           <ShopCartItem/>          

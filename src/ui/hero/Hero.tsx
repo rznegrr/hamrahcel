@@ -27,28 +27,28 @@ function Hero() {
       >
         <SwiperSlide>
           <img
-            src="/images/slider/baner.png"
+            src="/images/slider/slider1.png"
             alt="ساعت های هوشمند"
             className="rounded-2xl m-auto h-[150px] md:h-[250px] lg:h-[350px] xl:h-[450px]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="/images/slider/slide-1.webp"
+            src="/images/slider/slider2.png"
             alt="ساعت های هوشمند"
             className="rounded-2xl m-auto h-[150px] md:h-[250px] lg:h-[350px] xl:h-[450px]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="/images/slider/slide-2.webp"
+            src="/images/slider/slider3.png"
             alt="گوشی های موبایل برند سامسونگ"
             className="rounded-2xl m-auto h-[150px] md:h-[250px] lg:h-[350px] xl:h-[450px]"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="/images/slider/slide-3.webp"
+            src="/images/slider/slider4.png"
             alt="کنسول بازی "
             className="rounded-2xl m-auto h-[150px] md:h-[250px] lg:h-[350px] xl:h-[450px]"
           />
