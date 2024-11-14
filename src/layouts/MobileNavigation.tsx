@@ -2,7 +2,7 @@ import { useAuth } from "@/context/AuthContext";
 import LoginForm from "@/features/authentication/LoginForm";
 import Link from "next/link";
 
-function MobileMenu() {
+function MobileNavigation() {
   const { setFormIsOpen } = useAuth();
 
   return (
@@ -25,7 +25,7 @@ function MobileMenu() {
         <div className="col-span-3">
           <Link
             className="text-xs flex flex-col justify-center items-center"
-            href={""}
+            href={"/mobile-category"}
           >
             <button>
               <i className="bi bi-grid text-lg"></i>
@@ -58,4 +58,4 @@ function MobileMenu() {
   );
 }
 
-export default MobileMenu;
+export default MobileNavigation;

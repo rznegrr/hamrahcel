@@ -2,7 +2,7 @@ import React from "react";
 
 import MobileHeader from "./MobileHeader";
 import DesktopHeader from "./DesktopHeader";
-import DesktopMenu from "./DesktopMenu";
+import DesktopMenu from "./DesktopNavigation";
 
 function Header() {
   return (

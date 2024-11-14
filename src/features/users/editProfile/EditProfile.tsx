@@ -17,28 +17,15 @@ function EditProfile({ user }: any) {
   // };
 
   return (
-    <div className="p-5 flex flex-col items-start bg-white rounded-md">
+    <div className="p-5 flex flex-col items-start bg-white rounded-md w-100">
       <h2 className="text-xl font-bold mb-10">ویرایش اطلاعات</h2>
-      <div className="w-[60%] px-3">
+      <div className="w-[95%] lg:w-[60%] px-3">
         <form className="w-full">
           {/* user name */}
-          <div className="flex items-center mb-4 border-b border-border-color pb-3">
-            <label className="text-gray text-sm mb-3 w-60">نام کاربری</label>
-              <input
-                type="text"
-                {...register("username", { required: "نام کاربری الزامی است" })}
-                className="border border-border-color p-2 mb-2 rounded w-96 text-sm"
-              />
-              {/* {errors.userName && (
-                <span className="text-main-color text-sm">
-                  {errors.userName.message}
-                </span>
-              )} */}
-          </div>
 
           {/* full name */}
           <div className="flex items-center mb-4 border-b border-border-color pb-3">
-            <label className="text-gray text-sm mb-3 w-60">
+            <label className="text-gray text-xs md:text-sm mb-3 w-60">
               نام و نام خانوادگی
             </label>
             <input
@@ -47,10 +34,18 @@ function EditProfile({ user }: any) {
               className="border border-border-color p-2 mb-2 rounded w-96 text-sm"
             />
           </div>
+          <div className="flex items-center mb-4 border-b border-border-color pb-3">
+            <label className="text-gray text-xs md:text-sm mb-3 w-60">کد ملی</label>
+              <input
+                type="text"
+                {...register("username", { required: "کد ملی الزامی است" })}
+                className="border border-border-color p-2 mb-2 rounded w-96 text-sm"
+              />
+          </div>
 
           {/* email */}
           <div className="flex items-center mb-4 border-b border-border-color pb-3">
-            <label className="text-gray text-sm mb-3 w-60">ایمیل</label>
+            <label className="text-gray text-xs md:text-sm mb-3 w-60">ایمیل</label>
             <input
               type="email"
               {...register("email", {})}
@@ -60,7 +55,7 @@ function EditProfile({ user }: any) {
 
           {/* phone number */}
           <div className="flex items-center mb-4">
-            <label className="text-gray text-sm mb-3 w-60">شماره تماس</label>
+            <label className="text-gray text-xs md:text-sm mb-3 w-60">شماره تماس</label>
             <input
               disabled
               type="tel"

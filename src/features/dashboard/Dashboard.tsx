@@ -12,11 +12,11 @@ const Dashboard: React.FC = () => {
     setSelectedContent(content);
   };
 
-  const { user, isLoading } = useProfile();
-  console.log(user,isLoading);
+  // const { user, isLoading } = useProfile();
+  // console.log(user,isLoading);
   
 
-  if (isLoading) return <div>Loading...</div>;
+  // if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className="grid grid-cols-12 mb-16 gap-5">

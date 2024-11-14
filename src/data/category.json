@@ -1,0 +1,32 @@
+{
+    "category": {
+      "name": "mobile",
+      "brands": [
+        { "title": "برند سامسونگ", "image": "/images/megaMenu/samsung.webp" },
+        { "title": "برند اپل", "image": "/images/megaMenu/apple.webp" },
+        { "title": "برند شیائومی", "image": "/images/megaMenu/xiaomi.webp" },
+        { "title": "برند نوکیا", "image": "/images/megaMenu/nokia.webp" },
+        { "title": "برند هوآوی", "image": "/images/megaMenu/huawei.webp" },
+        { "title": "برند HONOR", "image": "/images/megaMenu/honor.webp" },
+        { "title": "برند اوپو", "image": "/images/megaMenu/oppo.webp" },
+        { "title": "برند موتورولا", "image": "/images/megaMenu/motorola.webp" },
+        { "title": "برند CAT", "image": "/images/megaMenu/cat.webp" },
+        { "title": "برند CORN", "image": "/images/megaMenu/corn.webp" },
+        { "title": "برند داریا", "image": "/images/megaMenu/daria.webp" },
+        { "title": "برند DOx", "image": "/images/megaMenu/dox.webp" },
+        { "title": "برند جی ال ایکس", "image": "/images/megaMenu/glx.webp" },
+        { "title": "برند گوگل", "image": "/images/megaMenu/google.webp" },
+        { "title": "برند آلکاتل", "image": "/images/megaMenu/alcatel.webp" },
+        { "title": "برند KGTEL", "image": "/images/megaMenu/kgtel.webp" },
+        { "title": "برند NOTHING", "image": "/images/megaMenu/nothing-phone.webp" },
+        { "title": "برند OTEL", "image": "/images/megaMenu/otel.webp" },
+        { "title": "برند REAL ME", "image": "/images/megaMenu/realme.webp" },
+        { "title": "برند SICCO", "image": "/images/megaMenu/siccoo.webp" },
+        { "title": "برند TCL", "image": "/images/megaMenu/tcl.webp" },
+        { "title": "برند تکنو", "image": "/images/megaMenu/tecno.webp" },
+        { "title": "پرچمداران", "image": "/images/megaMenu/top-mobiles.webp" },
+        { "title": "برند ووکال", "image": "/images/megaMenu/vocal.webp" }
+      ]
+    }
+  }
+  

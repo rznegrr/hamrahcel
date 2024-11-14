@@ -3,7 +3,7 @@ import Link from "next/link";
 import articles from "../../data/articles.json";
 
 import Button from "@/ui/Button";
-import Applayout from "@/layouts/Applayout";
+import Applayout from "@/layouts/AppLayout";
 import HeadTitle from "@/ui/HeadTitle";
 
 function articlePage() {

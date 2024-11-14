@@ -1,6 +1,6 @@
 import SuggestedBlogItem from "@/features/blogs/SuggestedBlogItem";
 import SuggestedProductsSlider from "@/features/products/suggestedProudcts/SuggestedProductsSlider";
-import Applayout from "@/layouts/Applayout";
+import Applayout from "@/layouts/AppLayout";
 import Breadcrumb from "@/ui/BreadCrumb";
 import HeadTitle from "@/ui/HeadTitle";
 

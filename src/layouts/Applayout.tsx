@@ -1,12 +1,12 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "./MobileNavigation";
 
 type ChildrenProps = {
   children: React.ReactNode;
 };
 
-function Applayout({ children }: ChildrenProps) {
+function AppLayout({ children }: ChildrenProps) {
   return (
     <>
     <div className="h-10 bg-main-color text-white text-center pt-1">همراه سل، همراه همیشگی شما...</div>
@@ -18,4 +18,4 @@ function Applayout({ children }: ChildrenProps) {
   );
 }
 
-export default Applayout;
+export default AppLayout;

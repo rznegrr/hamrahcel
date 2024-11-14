@@ -2,7 +2,7 @@ import React from "react";
 
 import HeadTitle from "../ui/HeadTitle";
 import Hero from "@/ui/hero/Hero";
-import Applayout from "@/layouts/Applayout";
+import AppLayout from "@/layouts/AppLayout";
 import CategorySlider from "@/features/category/CategorySlider";
 import NewProductsSlider from "@/features/products/newProducts/NewProductsSlider";
 import OfferProducts from "@/features/products/offerProducts/OfferProducts";
@@ -16,7 +16,7 @@ function HomePage() {
   return (
     <>
       <HeadTitle title="صفحه اصلی" meta="صفحه اصلی همراه سل" />
-      <Applayout>
+      <AppLayout>
         <Hero />
         <CategorySlider />
         <OfferProducts />
@@ -24,9 +24,9 @@ function HomePage() {
         <NewProductsSlider />
         <AdvertBanner/>
         <BrandingProductItems/>
-        <Blogs/>
+        {/* <Blogs/> */}
         <AboutUs/>
-      </Applayout>
+      </AppLayout>
     </>
   );
 }

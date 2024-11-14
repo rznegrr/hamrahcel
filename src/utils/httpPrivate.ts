@@ -39,7 +39,6 @@ const httpPrivate = async (method: string, url: string, data?: any) => {
     } else {
       console.log("you don't have refresh");
       return null
-      //navigate to login
     }
   } else {
     console.log("everything is ok");

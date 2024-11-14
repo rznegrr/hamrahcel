@@ -1,5 +1,5 @@
 import Dashboard from "@/features/dashboard/Dashboard";
-import Applayout from "@/layouts/Applayout";
+import AppLayout from "@/layouts/AppLayout";
 import ProtectedRoutes from "@/layouts/ProtectedRoutes";
 import Breadcrumb from "@/ui/BreadCrumb";
 import HeadTitle from "@/ui/HeadTitle";
@@ -9,12 +9,12 @@ function dashboard() {
   return (
     <>
       <HeadTitle title="داشبورد" meta="داشبورد همراه سل" />
-      <Applayout>
-        <Breadcrumb />
-        <ProtectedRoutes>
+      <ProtectedRoutes>
+        <AppLayout>
+          <Breadcrumb />
           <Dashboard />
-        </ProtectedRoutes>
-      </Applayout>
+        </AppLayout>
+      </ProtectedRoutes>
     </>
   );
 }

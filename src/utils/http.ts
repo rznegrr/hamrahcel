@@ -17,3 +17,4 @@ function http({ method, data, url, headers = {} }: HttpArgs) {
 }
 
 export default http;
+ 

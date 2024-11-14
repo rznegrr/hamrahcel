@@ -8,9 +8,10 @@ type Address = {
   lastName: string;
   province: string;
   city: string;
-  phoneNumber: string;
+  email: string;
   postalCode: string;
   address: string;
+  phoneNumber: string;
 };
 
 const AddressList = () => {
@@ -23,14 +24,11 @@ const AddressList = () => {
 
   return (
     <div className="p-5 bg-white h-full rounded-md">
-      <h2 className="text-xl font-bold mb-10">آدرس‌ ها</h2>
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="bg-main-color text-white py-2 px-4 rounded mb-4"
-      >
-        افزودن آدرس جدید
-      </button>
-      <ul>
+      <div className="flex items-center justify-between mb-10">
+        <h2 className="text-xl font-bold">آدرس‌ ها</h2>
+        <button onClick={() => setIsModalOpen(true)} className="text-sm text-main-color hover:text-black transition ease-out duration-150"><i className="bi bi-plus-circle ml-1"></i>ثبت آدرس جدید</button>
+      </div>
+      <ul className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {addresses.map((address, index) => (
           <li>
             <AddressItem
@@ -41,6 +39,7 @@ const AddressList = () => {
               city={address.city}
               postalCode={address.postalCode}
               address={address.address}
+              phoneNumber={address.phoneNumber}
             />
           </li>
         ))}

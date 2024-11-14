@@ -1,6 +1,5 @@
-import OfferProducts from "@/features/products/offerProducts/OfferProducts";
 import ProductInfoCard from "@/features/products/ProductInfoCard";
-import Applayout from "@/layouts/Applayout";
+import AppLayout from "@/layouts/AppLayout";
 import Breadcrumb from "@/ui/BreadCrumb";
 import Button from "@/ui/Button";
 import CommentsForm from "@/ui/CommentsForm";
@@ -16,9 +15,9 @@ function ProductDetail() {
   };
 
   return (
-    <>
+    <AppLayout>
       <HeadTitle title=" همراه سل | محصولات" meta="محصولات همراه سل" />
-      <Applayout>
+      <>
         <div>
           <Breadcrumb />
           <div className="bg-white py-5 md:py-10 overflow-hidden mb-16">
@@ -270,8 +269,8 @@ function ProductDetail() {
             </div> */}
           </div>
         </div>
-      </Applayout>
-    </>
+      </>
+    </AppLayout>
   );
 }
 

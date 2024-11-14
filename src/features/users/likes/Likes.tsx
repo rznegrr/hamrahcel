@@ -53,7 +53,7 @@ function Likes() {
     return (
       <div className="p-5 bg-white h-full rounded-md">
         <h2 className="text-xl font-bold mb-5">علاقه مندی ها</h2>
-        <ul className="grid gap-4 grid-cols-3">
+        <ul className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {likes.map((like) => (
             <li>
               <LikeItem

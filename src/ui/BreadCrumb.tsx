@@ -9,7 +9,7 @@ const Breadcrumb: FC = () => {
   const pathTranslations: { [key: string]: string } = {
     home: 'خانه',
     products: 'محصولات',
-    shopcart: 'سبد خرید',
+    basket: 'سبد خرید',
     articles: 'مقالات',
     dashboard: 'حساب کاربری',
     'product-details': 'جزئیات محصول',

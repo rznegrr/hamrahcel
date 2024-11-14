@@ -5,7 +5,7 @@ type SidebarProps = {
 const SideBar = ({onButtonClick} : SidebarProps) => {
   return (
     <>
-      <div className="col-span-3 h-fit w-full border border-border-color gap-6 rounded-md">
+      <div className="col-span-12 lg:col-span-3 h-fit w-full border border-border-color gap-6 rounded-md">
         <div className="flex flex-col items-start border-b border-border-color w-full p-6 account-bg rounded-tr-md rounded-tl-md">
           <p className="text-sm text-gray">سلام، خوش آمدید </p>
           <p className="text-base pt-1 text-main-color">نام کاربر</p>

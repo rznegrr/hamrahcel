@@ -8,7 +8,7 @@ function LoginForm() {
   const { formIsOpen, setFormIsOpen } = useAuth();
 
   const onSubmit = async (data: any) => {
-    const response = await login(data.username, data.password);
+    const response = await login(data.phone_number);
     localStorage.setItem("access", response.access);
     localStorage.setItem("refresh", response.refresh);
   };
@@ -27,46 +27,25 @@ function LoginForm() {
               ورود یا ثبت نام
             </h2>
 
-            {/* <label className="block py-2">شماره همراه خود را وارد کنید :</label>
+            <label className="block py-2">شماره همراه خود را وارد کنید :</label>
             <div className="flex flex-col justify-center items-center">
               <input
-                type="text"
-                placeholder="- - - - - - - 0912"
+                type="tel"
+                {...register("phone_number", {
+                  required: "شماره همراه خود را وارد کنید",
+                })}
                 className="w-64 my-4 p-2 bg-[#f9efeee9] border border-[#f9efeee9] rounded-md rounded-tr-2xl focus:outline-none focus:border-none placeholder:text-sm placeholder:text-left focus:text-left"
               />
               <button className="bg-main-color text-white m-auto w-64 py-2 rounded-md rounded-tr-2xl ">
                 ارسال کد
               </button>
-            </div> */}
-
-            <label className="block py-2">نام کاربری خود را وارد کنید :</label>
-            <div className="flex flex-col justify-center items-center">
-              <input
-                type="text"
-                {...register("username", { required: "نام کاربری الزامی است" })}
-                className="w-64 my-4 p-2 bg-[#f9efeee9] border border-[#f9efeee9] rounded-md rounded-tr-2xl focus:outline-none focus:border-none placeholder:text-sm placeholder:text-left focus:text-left"
-              />
-            </div>
-            <label className="block py-2"> رمز عبور خود را وارد کنید :</label>
-            <div className="flex flex-col justify-center items-center">
-              <input
-                type="text"
-                {...register("password", { required: "رمز عبور الزامی است" })}
-                className="w-64 my-4 p-2 bg-[#f9efeee9] border border-[#f9efeee9] rounded-md rounded-tr-2xl focus:outline-none focus:border-none placeholder:text-sm placeholder:text-left focus:text-left"
-              />
-              <button
-                type="submit"
-                className="bg-main-color text-white m-auto w-64 py-2 rounded-md rounded-tr-2xl "
-              >
-                ارسال کد
-              </button>
             </div>
 
-            {/* <p className="text-xs py-3 text-gray text-center border-t mt-6 border-gray">
+            <p className="text-xs py-3 text-gray text-center border-t mt-6 border-gray">
               با ورود و یا ثبت نام در فروشگاه اینترنتی همراه سل، شما
-              <span className="text-main-color">شرایط و قوانین</span> استفاده از
-              تمام سرویس های سایت و قوانین حریم خصوصی آن را می‌پذیرید.
-            </p> */}
+              <span className="text-main-color"> شرایط و قوانین</span> استفاده
+              از تمام سرویس های سایت و قوانین حریم خصوصی آن را می‌پذیرید.
+            </p>
 
             {/* close pop up button */}
             <button
