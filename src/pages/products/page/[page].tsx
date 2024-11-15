@@ -22,14 +22,11 @@ function ProductPage() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   
-  const page = router.query.page;
-  console.log(page);
-  
-  
+  const page = router.query.page;  
   const { isLoading, products } = useProducts(page);
   const toggleMenu = () => setIsOpen(!isOpen);
   
-  if (isLoading) return null;
+  if (isLoading || !page ) return null;
 
   return (
     <AppLayout>
@@ -104,7 +101,7 @@ function ProductPage() {
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
-                  <PaginationPrevious href={`/products/page/${page - 1}`} />
+                  <PaginationPrevious href={`/products/page/${+page - 1}`} />
                 </PaginationItem>
                 <PaginationItem>
                   <PaginationLink href="#">1</PaginationLink>

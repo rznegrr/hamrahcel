@@ -1,9 +1,14 @@
 import ProductCard from "../ProductCard";
+import { useProducts } from "../useProducts";
 
 function NewProductItem() {
+  const { isLoading, products } = useProducts(1)
+
+  if (isLoading) return null
+
   return (
     <div className="flex gap-1 justify-center">
-    <ProductCard className="bg-sec-color"/>
+    <ProductCard className="bg-sec-color" product={products.results[0]}/>
 
       {/* side product */}
       <div className="flex flex-col h-[290px] lg:h-[360px] gap-y-1">

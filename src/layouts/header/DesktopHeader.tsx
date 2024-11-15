@@ -17,11 +17,11 @@ function DesktopHeader() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const totalPrice = cart?.reduce(
-    (total, product) => total + product.price * product.quantity,
+    (total: any, product: any) => total + product.price * product.quantity,
     0
   );
 
-  const isCartEmpty = cart?.length === 0
+  const isCartEmpty = cart?.length === 0;
 
   return (
     <>
@@ -68,7 +68,7 @@ function DesktopHeader() {
           {!isCartEmpty && (
             <>
               <div className="overflow-y-auto max-h-72">
-                {cart.map((product, index) => (
+                {cart.map((product: any, index: number) => (
                   <ShopCartPopUpItem product={product} key={index} />
                 ))}
               </div>

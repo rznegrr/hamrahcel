@@ -6,8 +6,10 @@ type productCardProps = {
 };
 
 function ProductCard({ className , product }: productCardProps) {
+  console.log(product);
+  
   return (
-    <Link href={`/products/${product.id}`} className={`py-6 px-5 w-full bg-sec-color rounded-md rounded-tr-3xl shadow-xl ${className}`}>
+    <Link href={`/products/${product.id}`} className={`py-6 px-5 w-full bg-sec-color rounded-md rounded-tr-3xl shadow-xl block ${className}`}>
       <img src={product.images.at(0)?.image_url} className="h-24 w-24 lg:h-40 lg:w-40 m-auto" alt=""/>
       <p className="text-xs mt-8 lg:text-sm border-b border-border-color min-h-[50px]">
         {product.name}

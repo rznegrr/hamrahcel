@@ -55,9 +55,8 @@ function Likes() {
         <h2 className="text-xl font-bold mb-5">علاقه مندی ها</h2>
         <ul className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {likes.map((like) => (
-            <li>
+            <li key={like.id}>
               <LikeItem
-                key={like.id}
                 title={like.title}
                 image={like.image}
                 totalPrice={like.totalPrice}

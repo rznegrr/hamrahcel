@@ -1,54 +1,35 @@
 import { useCookie } from "@/hooks/useCookie";
-import {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  use,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-
-type CartProviderProps = {
-  children: React.ReactNode;
-};
-
-type CartItem = {
-  id: number;
-  quantity: number;
-  name: string;
-  image: string;
-  price: number;
-};
+import { createContext, useContext, useEffect, useState } from "react";
 
 type CartContextType = {
-  cart: CartItem[];
-  setCart: () => void;
-  add: (product: CartItem) => void;
+  cart: any;
+  add: (product: any) => void;
   remove: (id: number) => void;
+  setCart: React.Dispatch<React.SetStateAction<any>>;
+  // setFormIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const CartContext = createContext<CartContextType>({
   cart: [],
-  setCart: () => {},
   add: () => {},
   remove: () => {},
+  setCart: () => {},
 });
 
-const CartProvider = ({ children }: CartProviderProps) => {
+const CartProvider = ({ children }: any) => {
   const [value] = useCookie([], "cart");
-  const [cart, setCart] = useState<CartItem[]>(value);
-  
+  const [cart, setCart] = useState(value);
+
   useEffect(() => {
     setCart(value);
   }, [value]);
 
-  const add = (product: CartItem) => {
-    setCart((prev) => [...prev, product]);
+  const add = (product: any) => {
+    setCart((prev: any) => [...prev, product]);
   };
 
   const remove = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
+    setCart((prev: any) => prev.filter((item: any) => item.id !== id));
   };
 
   return (

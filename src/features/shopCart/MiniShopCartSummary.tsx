@@ -14,7 +14,7 @@ function MiniShopCartSummary({ buttonTitle, href }: MiniShopCartSummaryProps) {
   }
 
   const totalPrice = cart?.reduce(
-    (total, product) => total + product.price * product.quantity,
+    (total: any, product: any) => total + product.price * product.quantity,
     0
   );
 

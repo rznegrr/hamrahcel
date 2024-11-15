@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
-export function useCookie<T>(initialState: T, key: string) {
-  const valueRef = useRef<T | null>(null);
-  const [value, setValue] = useState<T | null>(initialState);
+export function useCookie(initialState: any, key: string) {
+  const valueRef = useRef(null);
+  const [value, setValue] = useState(initialState);
 
   // effect to read the value from cookies
   useEffect(() => {

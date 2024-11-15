@@ -9,7 +9,7 @@ import React from "react";
 function BasketPage() {
   const { cart } = useCartContext();
 
-  const isCartEmpty = cart?.length === 0
+  const isCartEmpty = cart?.length === 0;
 
   return (
     <AppLayout>
@@ -25,8 +25,8 @@ function BasketPage() {
         {!isCartEmpty && (
           <>
             <div className="col-span-12 lg:col-span-8">
-              {cart?.map((product) => (
-                <ShopCartItem product={product} />
+              {cart?.map((product: any) => (
+                <ShopCartItem product={product} key={product.id} />
               ))}
             </div>
 
