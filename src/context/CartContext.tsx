@@ -38,8 +38,7 @@ const CartContext = createContext<CartContextType>({
 const CartProvider = ({ children }: CartProviderProps) => {
   const [value] = useCookie([], "cart");
   const [cart, setCart] = useState<CartItem[]>(value);
-  console.log(value, typeof value);
-
+  
   useEffect(() => {
     setCart(value);
   }, [value]);

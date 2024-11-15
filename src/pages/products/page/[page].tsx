@@ -15,14 +15,20 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useRouter } from "next/router";
 
 function ProductPage() {
   const [showFilterProducts, setShowFilterProducts] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  const { isLoading, products } = useProducts(1);
+  const router = useRouter();
+  
+  const page = router.query.page;
+  console.log(page);
+  
+  
+  const { isLoading, products } = useProducts(page);
   const toggleMenu = () => setIsOpen(!isOpen);
-
+  
   if (isLoading) return null;
 
   return (
@@ -98,10 +104,10 @@ function ProductPage() {
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
-                  <PaginationPrevious href={'#'}/>
+                  <PaginationPrevious href={`/products/page/${page - 1}`} />
                 </PaginationItem>
                 <PaginationItem>
-                  <PaginationLink href="#" isActive>1</PaginationLink>
+                  <PaginationLink href="#">1</PaginationLink>
                 </PaginationItem>
                 <PaginationItem>
                   <PaginationLink href="#">
@@ -115,7 +121,7 @@ function ProductPage() {
                   <PaginationEllipsis />
                 </PaginationItem>
                 <PaginationItem>
-                  <PaginationNext href={`/products/page/2`} />
+                  <PaginationNext href={`/products/page/${+page + 1}`} />
                 </PaginationItem>
               </PaginationContent>
             </Pagination>
