@@ -16,12 +16,12 @@ function DesktopHeader() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const totalPrice = cart.reduce(
+  const totalPrice = cart?.reduce(
     (total, product) => total + product.price * product.quantity,
     0
   );
 
-  const isCartEmpty = cart.length === 0
+  const isCartEmpty = cart?.length === 0
 
   return (
     <>
@@ -40,7 +40,7 @@ function DesktopHeader() {
               <i className="bi bi-basket-fill text-white text-md pl-2"></i>سبد
               خرید
               <span className="bg-white text-sm text-main-color mr-2 px-[5px] rounded-full">
-                {cart.length}
+                {cart?.length}
               </span>
             </button>
             <Button
@@ -67,7 +67,7 @@ function DesktopHeader() {
 
           {!isCartEmpty && (
             <>
-              <div className="overflow-y-auto h-72">
+              <div className="overflow-y-auto max-h-72">
                 {cart.map((product, index) => (
                   <ShopCartPopUpItem product={product} key={index} />
                 ))}

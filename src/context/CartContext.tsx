@@ -1,8 +1,11 @@
+import { useCookie } from "@/hooks/useCookie";
 import {
   createContext,
   Dispatch,
   SetStateAction,
+  use,
   useContext,
+  useEffect,
   useState,
 } from "react";
 
@@ -20,7 +23,7 @@ type CartItem = {
 
 type CartContextType = {
   cart: CartItem[];
-  setCart: Dispatch<SetStateAction<CartItem[]>>;
+  setCart: () => void;
   add: (product: CartItem) => void;
   remove: (id: number) => void;
 };
@@ -33,7 +36,13 @@ const CartContext = createContext<CartContextType>({
 });
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [value] = useCookie([], "cart");
+  const [cart, setCart] = useState<CartItem[]>(value);
+  console.log(value, typeof value);
+
+  useEffect(() => {
+    setCart(value);
+  }, [value]);
 
   const add = (product: CartItem) => {
     setCart((prev) => [...prev, product]);

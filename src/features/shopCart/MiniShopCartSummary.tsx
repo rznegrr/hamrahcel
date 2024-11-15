@@ -9,11 +9,11 @@ type MiniShopCartSummaryProps = {
 function MiniShopCartSummary({ buttonTitle, href }: MiniShopCartSummaryProps) {
   const { cart } = useCartContext();
 
-  if (cart.length === 0) {
+  if (cart?.length === 0) {
     return null;
   }
 
-  const totalPrice = cart.reduce(
+  const totalPrice = cart?.reduce(
     (total, product) => total + product.price * product.quantity,
     0
   );

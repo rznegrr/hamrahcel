@@ -1,5 +1,6 @@
 import { useCartContext } from "@/context/CartContext";
 import ShipmentInfo from "@/ui/ShipmentInfo";
+import Link from "next/link";
 import React from "react";
 
 function ShopCartItem({ product }: any) {
@@ -31,7 +32,10 @@ function ShopCartItem({ product }: any) {
               <i className="bi bi-plus text-main-color"></i>
             </button>
             <p className="text-main-color">{product.quantity}</p>
-            <button className="text-base text-gray cursor-pointer font-black" onClick={() => remove(product.id)}>
+            <button
+              className="text-base text-gray cursor-pointer font-black"
+              onClick={() => remove(product.id)}
+            >
               <i className="bi bi-dash text-main-color"></i>
             </button>
           </div>
@@ -45,9 +49,12 @@ function ShopCartItem({ product }: any) {
         </div>
 
         <div className="absolute bottom-2 left-2 md:bottom-5 md:left-5">
-          <button className="text-xs md:text-sm text-black hover:text-main-color transition-all ease-in-out duration-300">
+          <Link
+            href={`/products/${product.id}`}
+            className="text-xs md:text-sm text-black hover:text-main-color transition-all ease-in-out duration-300"
+          >
             مشاهده محصول <i className="bi bi-chevron-left text-xs"></i>
-          </button>
+          </Link>
         </div>
       </div>
     </>

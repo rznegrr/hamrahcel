@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import ProductInfoCard from "@/features/products/ProductInfoCard";
 import AppLayout from "@/layouts/AppLayout";
 import Breadcrumb from "@/ui/BreadCrumb";
@@ -5,31 +6,35 @@ import Button from "@/ui/Button";
 import CommentsForm from "@/ui/CommentsForm";
 import HeadTitle from "@/ui/HeadTitle";
 import ShipmentInfo from "@/ui/ShipmentInfo";
-import React, { useState } from "react";
 import { useCartContext } from "@/context/CartContext";
 import { useProduct } from "@/features/products/useProduct";
 import { useRouter } from "next/router";
+import { useCookie } from "@/hooks/useCookie";
 
 function ProductDetail() {
-  const { add } = useCartContext();
   const router = useRouter();
   const { slug } = router.query;
 
   const { isLoading, product } = useProduct(slug);
   const [activeTab, setActiveTab] = useState(1);
+  const { add } = useCartContext();
+  const [value , setValue] = useCookie([], "cart");
+
 
   const handleTabClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
   };
 
   const handleAddToCart = (product: any) => {
-    add({
+    const cartItem = {
       id: product.id,
       name: product.name,
       image: product.images.at(0).image_url,
       price: product.price,
       quantity: 1,
-    });
+    }
+    add(cartItem);
+    setValue([...value, cartItem])
     router.push("/basket");
   };
 

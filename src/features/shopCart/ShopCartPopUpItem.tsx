@@ -1,9 +1,7 @@
-import { useCartContext } from "@/context/CartContext";
-
 function ShopCartPopUpItem({product}: any) {
   return (
     <>
-      <div className="flex justify-between items-start px-5 py-3">
+      <div className="flex gap-x-3 items-start px-5 py-3">
         <img src={product.image} className="h-24 w-24" />
         <div className="flex flex-col pr-2 pt-2">
           <p className="text-sm text-gray">

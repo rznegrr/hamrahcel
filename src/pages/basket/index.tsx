@@ -9,21 +9,23 @@ import React from "react";
 function BasketPage() {
   const { cart } = useCartContext();
 
+  const isCartEmpty = cart?.length === 0
+
   return (
     <AppLayout>
       <HeadTitle title="سبد خرید" meta="سبد خرید همراه سل" />
       <Breadcrumb />
       <div className="grid grid-cols-12 gap-x-5 mb-20">
-        {cart.length === 0 && (
+        {isCartEmpty && (
           <div className="col-span-12 min-h-44">
             <p className="pt-10">سبد خرید شما خالی است.</p>
           </div>
         )}
         {/* shop cart items */}
-        {cart.length !== 0 && (
+        {!isCartEmpty && (
           <>
             <div className="col-span-12 lg:col-span-8">
-              {cart.map((product) => (
+              {cart?.map((product) => (
                 <ShopCartItem product={product} />
               ))}
             </div>
