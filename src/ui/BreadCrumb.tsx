@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { FC } from 'react';
-import dashboard from '@/pages/dashboard';
 
 const Breadcrumb: FC = () => {
   const router = useRouter();

@@ -6,13 +6,34 @@ import CommentsForm from "@/ui/CommentsForm";
 import HeadTitle from "@/ui/HeadTitle";
 import ShipmentInfo from "@/ui/ShipmentInfo";
 import React, { useState } from "react";
+import { useCartContext } from "@/context/CartContext";
+import { useProduct } from "@/features/products/useProduct";
+import { useRouter } from "next/router";
 
 function ProductDetail() {
+  const { add } = useCartContext();
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const { isLoading, product } = useProduct(slug);
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (tabIndex: number) => {
     setActiveTab(tabIndex);
   };
+
+  const handleAddToCart = (product: any) => {
+    add({
+      id: product.id,
+      name: product.name,
+      image: product.images.at(0).image_url,
+      price: product.price,
+      quantity: 1,
+    });
+    router.push("/basket");
+  };
+
+  if (isLoading) return null;
 
   return (
     <AppLayout>
@@ -25,60 +46,50 @@ function ProductDetail() {
             <div className="grid grid-cols-12 w-[90vw] bg-white m-auto">
               <div className="col-span-12 lg:col-span-3 flex flex-col xl:mr-3 relative">
                 <div className="flex flex-col justify-center items-center absolute top-10 right-0 gap-5">
-                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn"><i className="bi bi-bookmark text-lg"></i></button>
-                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn"><i className="bi bi-chat-left-dots text-lg"></i></button>
-                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn"><i className="bi bi-share text-lg"></i></button>
+                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn">
+                    <i className="bi bi-bookmark text-lg"></i>
+                  </button>
+                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn">
+                    <i className="bi bi-chat-left-dots text-lg"></i>
+                  </button>
+                  <button className="bg-[#fcf1f1] px-3 py-2 rounded-md icon-btn">
+                    <i className="bi bi-share text-lg"></i>
+                  </button>
                 </div>
                 {/* main image */}
                 <img
-                  src="/images/phone.webp"
+                  src={product.images.at(0).image_url}
                   className="w-80 md:w-80 lg:h-[340px] xl:w-80 m-auto p-3 object-cover"
                   alt="product"
                 />
                 {/* gallery images */}
                 <ul className="flex justify-center gap-2 mt-3 overflow-x-scroll overflow-y-hidden scrollbar-hide m-auto md:mx-0">
-                  <li>
-                    <img
-                      className="w-20 h-20 border border-border-color rounded-xl p-px cursor-pointer object-cover"
-                      src="/images/phone.webp"
-                      alt="product-gallery"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      className="w-20 h-20 border border-border-color rounded-xl p-px cursor-pointer object-cover"
-                      src="/images/phone.webp"
-                      alt="product-gallery"
-                    />
-                  </li>
-                  <li>
-                    <img
-                      className="w-20 h-20 border border-border-color rounded-xl p-px cursor-pointer object-cover"
-                      src="/images/phone.webp"
-                      alt="product-gallery"
-                    />
-                  </li>
-                  <li className="relative">
-                    <img
-                      className="w-20 h-20 border border-border-color rounded-xl p-px cursor-pointer blur-sm"
-                      src="/images/phone.webp"
-                      alt="product-gallery"
-                    />
-                    <span className="text-3xl absolute top-3 right-5 cursor-pointer">
-                      ...
-                    </span>
-                  </li>
+                  {product.images.map((image: any, index: number) => (
+                    <li key={index} className="relative">
+                      <img
+                        className={`w-20 h-20 border border-border-color rounded-xl p-px cursor-pointer object-cover ${
+                          index === 3 ? "blur-sm" : ""
+                        }`}
+                        src={image.image_url}
+                        alt="product-gallery"
+                      />
+                      {index === 3 && (
+                        <span className="text-3xl absolute top-3 right-5 cursor-pointer">
+                          ...
+                        </span>
+                      )}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="col-span-12 lg:col-span-6 mt-5 xl:mt-7 px-4">
                 <p className="text-lg lg:text-xl font-bold text-black">
-                  سامسونگ گلکسی A35 رم 8 گیگابایت و ظرفیت 256 گیگابایت (پک
-                  ویتنام)
+                  %نام فارسی%
                 </p>
 
                 <p className="text-xs md:text-sm text-gray mt-2">
-                  Xiaomi Redmi 13 4G 8GB 256GB
+                  {product.name}
                 </p>
 
                 <div className="flex whitespace-nowrap scrollbar-hide gap-3 mt-3 overflow-y-hidden overflow-x-scroll">
@@ -115,13 +126,13 @@ function ProductDetail() {
                       titleStyle="text-xs lg:text-sm"
                       descStyle="text-sm lg:text-lg"
                     />
-                      <ProductInfoCard
-                        title="دوربین اصلی"
-                        desc="100 مگاپیکسل"
-                        icon="bi bi-camera2 px-1 xl:pr-5 xl:pl-3"
-                        titleStyle="text-xs lg:text-sm"
-                        descStyle="text-sm lg:text-lg"
-                      />
+                    <ProductInfoCard
+                      title="دوربین اصلی"
+                      desc="100 مگاپیکسل"
+                      icon="bi bi-camera2 px-1 xl:pr-5 xl:pl-3"
+                      titleStyle="text-xs lg:text-sm"
+                      descStyle="text-sm lg:text-lg"
+                    />
                     <ProductInfoCard
                       title="دوربین جلو"
                       desc="40 مگاپیکسل"
@@ -151,12 +162,14 @@ function ProductDetail() {
                 <img src="/hamrahcel.svg" className="h-20 w-28 m-auto" />
                 <ShipmentInfo className="border-y border-[#ffffff] py-7 px-5 gap-3" />
                 <p className="text-left py-4 text-black">
-                  45,000,000 <span className="text-main-color mr-1">تومان</span>
+                  {product.price}
+                  <span className="text-main-color mr-1">تومان</span>
                 </p>
                 <Button
                   buttonName="افزودن به سبد خرید"
                   className="bg-main-color w-full text-white m-auto justify-center my-3 gap-3 py-2 hover:bg-white hover:text-main-color transition-all ease-in-out duration-300"
                   buttonIcon="bi bi-cart"
+                  onClick={() => handleAddToCart(product)}
                 />
               </div>
             </div>
@@ -165,19 +178,25 @@ function ProductDetail() {
             <div className="bg-white w-[90vw] m-auto xs:mt-32 sm:mt-0 pt-10">
               <div className="flex gap-5 md:gap-10 mt-1 border-y border-border-color px-5 py-4">
                 <button
-                  className={`tab-button text-sm lg:text-base pb-3 ${activeTab === 1 ? 'active' : ''}`}
+                  className={`tab-button text-sm lg:text-base pb-3 ${
+                    activeTab === 1 ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick(1)}
                 >
                   اطلاعات کلی
                 </button>
                 <button
-                  className={`tab-button text-sm lg:text-base pb-3 ${activeTab === 2 ? 'active' : ''}`}
+                  className={`tab-button text-sm lg:text-base pb-3 ${
+                    activeTab === 2 ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick(2)}
                 >
                   مشخصات فنی
                 </button>
                 <button
-                  className={`tab-button text-sm lg:text-base pb-3 ${activeTab === 3 ? 'active' : ''}`}
+                  className={`tab-button text-sm lg:text-base pb-3 ${
+                    activeTab === 3 ? "active" : ""
+                  }`}
                   onClick={() => handleTabClick(3)}
                 >
                   نظرات کاربران

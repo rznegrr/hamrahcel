@@ -14,7 +14,7 @@ function Shipping() {
         <div className="col-span-8 rounded-xl m-5 border border-border-color">
           <AddressList />
         </div>
-        <MiniShopCartSummary />
+        <MiniShopCartSummary href="/basket/payment" buttonTitle="انتخاب درگاه پرداخت"/>
       </div>
     </AppLayout>
   );

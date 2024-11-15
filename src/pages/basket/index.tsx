@@ -1,3 +1,4 @@
+import { useCartContext } from "@/context/CartContext";
 import MiniShopCartSummary from "@/features/shopCart/MiniShopCartSummary";
 import ShopCartItem from "@/features/shopCart/ShopCartItem";
 import AppLayout from "@/layouts/AppLayout";
@@ -6,20 +7,33 @@ import HeadTitle from "@/ui/HeadTitle";
 import React from "react";
 
 function BasketPage() {
+  const { cart } = useCartContext();
+
   return (
     <AppLayout>
       <HeadTitle title="سبد خرید" meta="سبد خرید همراه سل" />
       <Breadcrumb />
       <div className="grid grid-cols-12 gap-x-5 mb-20">
+        {cart.length === 0 && (
+          <div className="col-span-12 min-h-44">
+            <p className="pt-10">سبد خرید شما خالی است.</p>
+          </div>
+        )}
         {/* shop cart items */}
-        <div className="col-span-12 lg:col-span-8">
-          <ShopCartItem />
-          <ShopCartItem />
-          <ShopCartItem />
-        </div>
+        {cart.length !== 0 && (
+          <>
+            <div className="col-span-12 lg:col-span-8">
+              {cart.map((product) => (
+                <ShopCartItem product={product} />
+              ))}
+            </div>
 
-        {/* shop cart summary */}
-        <MiniShopCartSummary />
+            <MiniShopCartSummary
+              href="/basket/shipping"
+              buttonTitle="ادامه فرآیند خرید"
+            />
+          </>
+        )}
       </div>
     </AppLayout>
   );

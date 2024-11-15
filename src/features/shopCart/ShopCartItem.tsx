@@ -1,17 +1,17 @@
+import { useCartContext } from "@/context/CartContext";
 import ShipmentInfo from "@/ui/ShipmentInfo";
 import React from "react";
 
-function ShopCartItem() {
+function ShopCartItem({ product }: any) {
+  const { remove } = useCartContext();
   return (
     <>
       {/* shop cart item */}
       <div className="h-96 md:h-80 border border-border-color rounded-lg gap-x-5 p-4 mt-7 shadow-md relative">
         <div className="flex mt-2">
-          <img src="/images/phone.webp" className="h-32 md:w-32 rounded-xl" />
+          <img src={product.image} className="h-32 md:w-32 rounded-xl" />
           <div className="mr-3 md:mr-8">
-            <p className="text-sm md:text-base pt-3">
-              سامسونگ گلکسی A35 رم 8 گیگابایت و ظرفیت 256 گیگابایت (پک ویتنام)
-            </p>
+            <p className="text-sm md:text-base pt-3">{product.name}</p>
 
             <div className="flex gap-2 my-3 border border-border-color rounded-md rounded-tr-2xl p-2 w-28">
               <span className="h-5 w-5 bg-black text-black rounded-full">
@@ -20,7 +20,7 @@ function ShopCartItem() {
               <p className="text-xs md:text-sm text-black">رنگ مشکی</p>
             </div>
 
-            <ShipmentInfo className="gap-1"/>
+            <ShipmentInfo className="gap-1" />
           </div>
         </div>
 
@@ -30,15 +30,15 @@ function ShopCartItem() {
             <button className="text-base text-gray cursor-not-allowed font-black">
               <i className="bi bi-plus text-main-color"></i>
             </button>
-            <p className="text-main-color">0</p>
-            <button className="text-base text-gray cursor-pointer font-black">
+            <p className="text-main-color">{product.quantity}</p>
+            <button className="text-base text-gray cursor-pointer font-black" onClick={() => remove(product.id)}>
               <i className="bi bi-dash text-main-color"></i>
             </button>
           </div>
 
           <div>
             <p className="text-sm md:text-base text-info">
-              48,095,738
+              {product.price}
               <span className="text-sm text-main-color pr-2">تومان</span>
             </p>
           </div>

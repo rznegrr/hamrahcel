@@ -7,12 +7,21 @@ import LoginForm from "@/features/authentication/LoginForm";
 import { useAuth } from "@/context/AuthContext";
 import ShopCartPopUpItem from "@/features/shopCart/ShopCartPopUpItem";
 import Link from "next/link";
+import { useCartContext } from "@/context/CartContext";
 
 function DesktopHeader() {
+  const { cart } = useCartContext();
   const [isOpen, setIsOpen] = useState(false);
   const { setFormIsOpen } = useAuth();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const totalPrice = cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
+  const isCartEmpty = cart.length === 0
 
   return (
     <>
@@ -31,7 +40,7 @@ function DesktopHeader() {
               <i className="bi bi-basket-fill text-white text-md pl-2"></i>سبد
               خرید
               <span className="bg-white text-sm text-main-color mr-2 px-[5px] rounded-full">
-                0
+                {cart.length}
               </span>
             </button>
             <Button
@@ -50,28 +59,36 @@ function DesktopHeader() {
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
-          <div className="overflow-y-auto h-72">
-            <ShopCartPopUpItem />
-            <ShopCartPopUpItem />
-            <ShopCartPopUpItem />
-            <ShopCartPopUpItem />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <div className="flex justify-between p-5 border-t border-border-color">
-              <p>جمع کل سفارش :</p>
-              <p>
-                48,095,738 <span className="text-sm mr-1">تومان</span>
-              </p>
+          {isCartEmpty && (
+            <div className="py-10 px-10">
+              <p>سبد خرید شما خالی است.</p>
             </div>
-          <Link href={'/shopcart'}>
-          <Button
-              buttonName="ادامه فرایند خرید"
-              className="flex-row-reverse justify-between hover:bg-main-color hover:text-white transition-all ease-out duration-200 w-72 border border-main-color text-main-color m-auto mb-10"
-              buttonIcon="bi bi-arrow-left"
-            />
-            </Link>
-          </div>
+          )}
+
+          {!isCartEmpty && (
+            <>
+              <div className="overflow-y-auto h-72">
+                {cart.map((product, index) => (
+                  <ShopCartPopUpItem product={product} key={index} />
+                ))}
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between p-5 border-t border-border-color">
+                  <p>جمع کل سفارش :</p>
+                  <p>
+                    {totalPrice} <span className="text-sm mr-1">تومان</span>
+                  </p>
+                </div>
+                <Link href={"/basket"}>
+                  <Button
+                    buttonName="ادامه فرایند خرید"
+                    className="flex-row-reverse justify-between hover:bg-main-color hover:text-white transition-all ease-out duration-200 w-72 border border-main-color text-main-color m-auto mb-10"
+                    buttonIcon="bi bi-arrow-left"
+                  />
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       )}
     </>

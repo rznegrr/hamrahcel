@@ -6,7 +6,7 @@ type HttpArgs = {
 };
 
 function http({ method, data, url, headers = {} }: HttpArgs) {
-  return fetch(`http://hamrahcel.com:8000/${url}/`, {
+  return fetch(`http://91.220.113.138:8000/${url}/`, {
     method,
     headers: {
       "Content-Type": "application/json",
